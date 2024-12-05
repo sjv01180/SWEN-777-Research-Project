@@ -11,9 +11,9 @@ result = reviews_all(
 # /print(result[0])
 with open("HealthConnectReviews.csv", "w") as file:
     writer = csv.writer(file)
-    writer.writerow(['reviewId', 'userName', 'userImage', 'content', 'score', 'thumbsUpCount', 'reviewCreatedVersion', 'at', 'replyContent', 'repliedAt', 'appVersion'])
+    writer.writerow(['reviewId', 'content', 'score', 'thumbsUpCount', 'reviewCreatedVersion', 'at', 'appVersion'])
     for i in result:
         if i['score'] <= 2:
-            review = [i['reviewId'], i['userName'], i['userImage'], i['content'], i['score'], i['thumbsUpCount'], i['reviewCreatedVersion'], i['at'], i['replyContent'], i['repliedAt'], i['appVersion']]
+            review = [i['reviewId'], i['content'], i['score'], i['thumbsUpCount'], i['reviewCreatedVersion'], i['at'], i['appVersion']]
             writer.writerows([review])
 file.close()        
